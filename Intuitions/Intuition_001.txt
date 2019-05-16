@@ -1,0 +1,29 @@
+For two numbers to differ by only one digit in their binary representations, the difference should definitely be the power of 2 of that differentiating digit position.
+For example the difference between 01101 and 01001 is 2^2.
+So, I have started to form a sequence of numbers satisfying the condition(differ by only one digit) starting from 0.
+Let's assume that a permutation of 'N'(a power of 2) numbers satisfying the condition is formed already. We need to find a sequence of '2*N' numbers satisfying the condition.
+As the 'N' numbers(in binary representations) already satisfy the given condition the reverse of the numbers(binary representations) also differ by only one digit.
+
+Consider the sequence 00,01,11,10 --> They satisfy the condition. So the reverse 10,11,01,00 --> also satisfy the condition.
+And also just carefully observe how binary numbers expand i.e. sequence of first 4 numbers (0,1,2,3) are represented by 00,01,10,11. If we expand it to first 8 i.e (2*4) numbers,
+all we do is put a '0' infront of (00,01,10,11) and '1' infront of (00,01,10,11) and hence we form (0-00,0-01,0-10,0-11,1-00,1-01,1-10,1-11) the sequence of first 8 numbers.
+
+Combining the above 2 observations, I have arrived at a solution which is,
+If we have a N-number permutation satisfying the given condition(00,01,11,10), reverse the permutation which also satisfies the condition(10,11,01,00).
+Append first 'N' number permutation with '0' as prefix and '1' as prefix to the reverse N-number permutation. (0-00,0-01,0-11,0-10,1-10,1-11,1-01,1-00).
+The resulting 2*N number permutation also satisfies the given conditions. This way we can start with 0,1 and keep expanding it 2 times to form any number permutation.
+
+Example:
+3-number permutation formed by expanding 2-number permutation is as follows:
+000    --   0
+001    --   1
+011    --   3  
+010    --   2
+110    --   6  -- (4+2)
+111    --   7  -- (4+3)
+101    --   5  -- (4+1)
+100    --   4  -- (2^2)
+
+We can clearly now see that the sequence is formed as follows:
+First fix the (2*N)th number (here 4) in it's position.
+(N+1) to (2*N-1) permutation is formed as follows: P[N+k-1] = P[N-k] where k varies from 1 to N-1.

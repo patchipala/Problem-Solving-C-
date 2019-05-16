@@ -1,0 +1,18 @@
+Given two integers N and A, print a permutation K(0,1,2,...,(2^n)-1) such that
+--> The permutation starts with A,
+--> Consecutive numbers in the permutation differ by only one bit in their binary representation.
+--> The first and last elements of the permutation must also differ by only one bit in their binary representation.
+
+Input:
+N A
+Output:
+Permutation satisfying the above conditions.
+
+Example:
+Input:
+2 1
+Output:
+1 3 2 0
+
+Explanation:
+1(01) 3(11) 2(10) 0(00) --> The consecutive elements differ by only one digit. The first and last elements differ by only one digit. 

@@ -27,3 +27,5 @@ Example:
 We can clearly now see that the sequence is formed as follows:
 First fix the (2*N)th number (here 4) in it's position.
 (N+1) to (2*N-1) permutation is formed as follows: P[N+k-1] = P[N-k] where k varies from 1 to N-1.
+
+We can also observe that the permutation starts with 0. To print the permutation starting with 'A', print the permutation(P) array circularly starting from A's position.
